@@ -20,6 +20,8 @@ public class FileMerger {
 
         Path mergedFile = Path.of(root + "/merged-file.txt");
 
+        Files.deleteIfExists(mergedFile);
+
         for (Path file : files) {
             Files.write(mergedFile, Files.readAllBytes(file), StandardOpenOption.APPEND, StandardOpenOption.CREATE);
         }
